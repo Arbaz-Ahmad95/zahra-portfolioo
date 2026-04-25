@@ -46,7 +46,7 @@ export const MacbookScroll = ({
   return (
     <div
       ref={ref}
-      className="min-h-[120vh] w-full flex flex-col items-center justify-start [perspective:1500px] py-10 overflow-hidden"
+      className="relative min-h-[120vh] w-full flex flex-col items-center justify-start [perspective:1500px] py-10 overflow-hidden"
     >
       <motion.div style={{ opacity }} className="mb-10 text-center px-4 z-50">
         {title}

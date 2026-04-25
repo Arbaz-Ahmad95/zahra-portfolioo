@@ -23,12 +23,10 @@ export const Contact = () => {
       padding: '0 24px 40px 24px',
       overflow: 'hidden'
     }}>
-      <div style={{
+      <div className="contact-grid" style={{
         maxWidth: '1200px',
         margin: '0 auto',
         display: 'grid',
-        gridTemplateColumns: '1fr 1.1fr',
-        minHeight: '450px',
         borderRadius: '40px',
         overflow: 'hidden',
         background: isDark ? 'rgba(255,255,255,0.02)' : 'rgba(0,0,0,0.02)',
@@ -44,7 +42,8 @@ export const Contact = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          padding: '30px'
+          padding: '30px',
+          minHeight: '350px'
         }}>
           {/* Animated Blob Backdrops */}
           <motion.div
@@ -78,31 +77,30 @@ export const Contact = () => {
                 boxShadow: isDark ? '0 40px 100px rgba(0,0,0,0.4)' : '0 20px 50px rgba(0,0,0,0.05)'
               }}
             >
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="rgba(255,255,255,0.6)" style={{ marginBottom: '24px' }}>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill={isDark ? "rgba(255,255,255,0.4)" : "rgba(0,0,0,0.2)"} style={{ marginBottom: '20px' }}>
                 <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C20.1216 16 21.017 16.8954 21.017 18V21C21.017 22.1046 20.1216 23 19.017 23H16.017C14.9124 23 14.017 22.1046 14.017 21ZM14.017 21C11.1216 21 8.017 18.8954 8.017 15V12C8.017 11.1046 8.91242 10.2092 10.017 10.2092H13.017C14.1216 10.2092 15.017 11.1046 15.017 12V15C15.017 16.1046 14.1216 17 13.017 17H11.017C11.017 18 12.017 19 14.017 19V21ZM5.017 21L5.017 18C5.017 16.8954 5.91242 16 7.017 16H10.017C11.1216 16 12.017 16.8954 12.017 18V21C12.017 22.1046 11.1216 23 10.017 23H7.017C5.91242 23 5.017 22.1046 5.017 21ZM5.017 21C2.12158 21 -1 18.8954 -1 15V12C-1 11.1046 0.89543 10.2092 2.017 10.2092H5.017C6.12158 10.2092 7.017 11.1046 7.017 12V15C7.017 16.1046 6.12158 17 5.017 17H3.017C3.017 18 4.017 19 6.017 19V21" />
               </svg>
               <p style={{
-                fontSize: '20px',
+                fontSize: '18px',
                 color: isDark ? '#fff' : '#1e1b4b',
-                lineHeight: 1.6,
+                lineHeight: 1.5,
                 fontWeight: '500',
-                marginBottom: '20px'
+                marginBottom: '16px'
               }}>
                 "{testimonialsData[index].text}"
               </p>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                 <div style={{
-                  width: '48px', height: '48px', borderRadius: '50%',
+                  width: '40px', height: '40px', borderRadius: '50%',
                   background: testimonialsData[index].color,
                   display: 'flex', alignItems: 'center', justifySelf: 'center',
-                  fontSize: '14px', fontWeight: 'bold', color: '#fff'
+                  fontSize: '12px', fontWeight: 'bold', color: '#fff'
                 }}>
-                  {/* Placeholder for profile pic if available, otherwise initials */}
                   <span style={{ margin: '0 auto' }}>{testimonialsData[index].initials}</span>
                 </div>
                 <div>
-                  <div style={{ color: isDark ? '#fff' : '#1e1b4b', fontWeight: '700', fontSize: '16px' }}>{testimonialsData[index].name}</div>
-                  <div style={{ color: isDark ? 'rgba(255,255,255,0.6)' : 'rgba(30,27,75,0.6)', fontSize: '13px' }}>{testimonialsData[index].role}</div>
+                  <div style={{ color: isDark ? '#fff' : '#1e1b4b', fontWeight: '700', fontSize: '15px' }}>{testimonialsData[index].name}</div>
+                  <div style={{ color: isDark ? 'rgba(255,255,255,0.6)' : 'rgba(30,27,75,0.6)', fontSize: '12px' }}>{testimonialsData[index].role}</div>
                 </div>
               </div>
             </motion.div>
@@ -110,50 +108,63 @@ export const Contact = () => {
         </div>
 
         {/* Right Side: Contact Form */}
-        <div style={{ padding: '30px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-          <h2 style={{ fontSize: '24px', fontWeight: '800', color: t.text, marginBottom: '8px' }}>Contact Us</h2>
-          <p style={{ color: t.textMuted, marginBottom: '20px', fontSize: '15px' }}>
-            Reach out and we'll get back to you fast.
+        <div style={{ padding: '40px 30px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <h2 style={{ fontSize: '28px', fontWeight: '800', color: t.text, marginBottom: '8px' }}>Let's Connect</h2>
+          <p style={{ color: t.textMuted, marginBottom: '24px', fontSize: '15px' }}>
+            Fill out the form and I'll get back to you within 24 hours.
           </p>
 
-          <form style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            <FormInput label="Full Name" placeholder="Zahra Fiaz" theme={t} />
-            <FormInput label="Email address" placeholder="zahra@example.com" theme={t} />
-            <FormInput label="Company" placeholder="Your Company Name" theme={t} />
-
+          <form style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <FormInput label="Full Name" placeholder="Zahra Fiaz" theme={t} isDark={isDark} />
+            <FormInput label="Email address" placeholder="zahra@example.com" theme={t} isDark={isDark} />
+            
             <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-              <label style={{ fontSize: '12px', fontWeight: '600', color: t.text }}>Message</label>
+              <label style={{ fontSize: '12px', fontWeight: '600', color: t.text, opacity: 0.8 }}>Message</label>
               <textarea
-                placeholder="Enter your message here"
+                placeholder="How can I help you?"
                 style={{
-                  width: '100%', minHeight: '80px',
+                  width: '100%', minHeight: '120px',
                   background: isDark ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.03)',
                   border: `1px solid ${t.border}`,
-                  borderRadius: '12px', padding: '10px', color: t.text,
-                  outline: 'none', transition: 'border-color 0.3s'
+                  borderRadius: '16px', padding: '14px', color: t.text,
+                  outline: 'none', transition: 'all 0.3s',
+                  fontSize: '14px'
                 }}
               />
             </div>
 
-            <button style={{
+            <button className="submit-btn" style={{
               width: '100%',
-              background: isDark ? '#fff' : '#000',
+              background: isDark ? '#fff' : t.accent,
               color: isDark ? '#000' : '#fff',
-              padding: '14px', borderRadius: '50px',
+              padding: '16px', borderRadius: '50px',
               fontWeight: '800', fontSize: '15px', border: 'none',
               cursor: 'pointer', transition: 'all 0.3s',
-              marginTop: '4px'
+              marginTop: '8px'
             }}>
-              Submit
+              Send Message
             </button>
           </form>
         </div>
       </div>
 
       <style jsx>{`
+        .contact-grid {
+          grid-template-columns: 1fr 1.1fr;
+          min-height: 500px;
+        }
         @media (max-width: 968px) {
-          div[style*="grid-template-columns: 1fr 1fr"] {
-            grid-template-columns: 1fr !important;
+          .contact-grid {
+            grid-template-columns: 1fr;
+            border-radius: 24px;
+          }
+          .submit-btn:active {
+            transform: scale(0.98);
+          }
+        }
+        @media (max-width: 480px) {
+          section {
+            padding: 0 16px 40px 16px !important;
           }
         }
       `}</style>
@@ -161,18 +172,18 @@ export const Contact = () => {
   )
 }
 
-const FormInput = ({ label, placeholder, theme }: any) => {
+const FormInput = ({ label, placeholder, theme, isDark }: any) => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-      <label style={{ fontSize: '12px', fontWeight: '600', color: theme.text }}>{label}</label>
+      <label style={{ fontSize: '12px', fontWeight: '600', color: theme.text, opacity: 0.8 }}>{label}</label>
       <input
         placeholder={placeholder}
         style={{
           width: '100%',
-          background: 'rgba(255,255,255,0.03)',
+          background: isDark ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.03)',
           border: `1px solid ${theme.border}`,
-          borderRadius: '12px', padding: '12px', color: theme.text,
-          outline: 'none', transition: 'border-color 0.3s',
+          borderRadius: '16px', padding: '14px', color: theme.text,
+          outline: 'none', transition: 'all 0.3s',
           fontSize: '14px'
         }}
       />
