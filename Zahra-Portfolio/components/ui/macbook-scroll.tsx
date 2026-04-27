@@ -40,7 +40,7 @@ export const MacbookScroll = ({
 
   const lidRotate = useTransform(scrollYProgress, [0, 0.6], [-90, -10]);
   const baseScale = useTransform(scrollYProgress, [0, 0.6], [0.7 * scaleFactor, 1 * scaleFactor]);
-  const translateY = useTransform(scrollYProgress, [0, 0.6], [100, 0]);
+  const translateY = useTransform(scrollYProgress, [0, 0.6], [100, 20]);
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
   return (
@@ -77,9 +77,11 @@ export const MacbookScroll = ({
                   <img
                     src={src}
                     alt="Screen content"
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover object-top brightness-[1.05] contrast-[1.02]"
                   />
                 )}
+                {/* Glass Reflection Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
                 {showGradient && (
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
                 )}

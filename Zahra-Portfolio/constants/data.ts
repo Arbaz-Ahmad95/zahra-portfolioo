@@ -25,8 +25,8 @@ export const expertises = [
 export const projectsData = [
   { id: 1, tag: 'Chatbot SaaS for Developers', name: 'Clabot AI', image: '/clabot-ai.png', accent: '#8b5cf6', github: 'https://github.com/Zahra-007', link: '#' },
   { id: 2, tag: 'Website Integrated Chatbot', name: 'AI Customer Service Bot', image: '/service-bot.png', accent: '#10b981', github: 'https://github.com/Zahra-007', link: '#' },
-  { id: 3, tag: 'Logistics Website', name: 'AFAQ Al Bahar Shipping', image: '/shipping.png', accent: '#3b82f6', github: 'https://github.com/Zahra-007', link: '#' },
-  { id: 4, tag: 'Healthcare Platform', name: 'Medical Clinic Website', image: '/medical.png', accent: '#3b82f6', github: 'https://github.com/Zahra-007', link: '#' },
+  { id: 3, tag: 'Logistics & Global Shipping', name: 'AFAQ Al Bahar Shipping', image: '/shipping.png', accent: '#14b8a6', github: 'https://github.com/Zahra-007', link: '#' },
+  { id: 4, tag: 'Healthcare & Aesthetic Clinic', name: 'Medical Clinic Website', image: '/medical.png', accent: '#06b6d4', github: 'https://github.com/Zahra-007', link: '#' },
 ]
 
 export const testimonialsData = [

@@ -65,13 +65,16 @@ export const Projects = () => {
   // Better approach: Calculate a custom scale value based on sub-progress
   // Reduced zoom levels to prevent overlapping with UI elements
   const calculateScale = (subProg: number, isOpening: boolean) => {
-    const baseVal = 0.8; // Lower base scale for more zoom-out clearance
-    if (isOpening) return 0.5 + subProg * 0.3; // 0.5 to 0.8 during opening
+    const baseVal = 0.65; // Zoomed out between projects
+    const maxVal = 0.88;  // Maximum zoom to avoid clipping top of screen
+    const diff = maxVal - baseVal;
+
+    if (isOpening) return 0.4 + subProg * 0.25; // 0.4 to 0.65 during opening
     
-    // For each project: 0.8 -> 1.0 (focus) -> 0.8 (zoom out)
-    if (subProg < 0.2) return baseVal + (subProg / 0.2) * 0.2; // 0.8 to 1.0
-    if (subProg < 0.8) return baseVal + 0.2; // Stay at 1.0
-    return (baseVal + 0.2) - ((subProg - 0.8) / 0.2) * 0.2; // 1.0 to 0.8
+    // For each project: baseVal -> maxVal (focus) -> baseVal (zoom out)
+    if (subProg < 0.2) return baseVal + (subProg / 0.2) * diff; 
+    if (subProg < 0.8) return maxVal; 
+    return maxVal - ((subProg - 0.8) / 0.2) * diff; 
   }
 
   const currentScale = calculateScale(projectProgress, index === 0 && scrollYProgress.get() < 0.15)
@@ -139,7 +142,7 @@ export const Projects = () => {
         <div style={{ 
           transform: `scale(${currentScale})`, 
           transition: 'transform 0.2s cubic-bezier(0.2, 0, 0.2, 1)',
-          marginTop: '100px' // Moved DOWN more to ensure the top is 100% visible
+          marginTop: '150px' // Increased margin to ensure top isn't cut off even at max zoom
         }}>
           <MacbookScroll
             key="sticky-macbook"

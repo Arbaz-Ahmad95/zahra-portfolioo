@@ -7,6 +7,8 @@ import { useTheme } from '@/context/ThemeContext'
 import { sectionLabelStyle, sectionH2Style } from '@/constants/tokens'
 import { expertises } from '@/constants/data'
 
+import { LampContainer } from '@/components/ui/lamp'
+
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
@@ -24,23 +26,50 @@ export const Skills = () => {
   const { t } = useTheme()
 
   return (
-    <section id="skills" className="section-padding" style={{ 
-      padding: 'clamp(80px,10vw,160px) clamp(24px,5vw,80px)', 
-      maxWidth: '1280px', margin: '0 auto', position: 'relative', zIndex: 1 
-    }}>
-      <motion.div {...fadeUp()} style={{ textAlign: 'center', marginBottom: '80px' }}>
-        <p style={{ ...sectionLabelStyle, color: t.accent, textAlign: 'center' }}>My Expertise</p>
-        <h2 style={{ ...sectionH2Style, color: t.text, textAlign: 'center' }}>
-          Core Specialities &<br />
-          <span style={{ 
-            display: 'inline-block', 
-            backgroundImage: `linear-gradient(90deg, ${t.accent}, #3b82f6)`, 
-            WebkitBackgroundClip: 'text', 
-            backgroundClip: 'text', 
-            WebkitTextFillColor: 'transparent' 
-          }}>Procedure</span>
-        </h2>
-      </motion.div>
+    <section id="skills" style={{ position: 'relative', zIndex: 1, background: '#020617' }}>
+      <LampContainer>
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 0.3,
+            duration: 0.8,
+            ease: "easeInOut",
+          }}
+          style={{ textAlign: 'center' }}
+        >
+          <p style={{ ...sectionLabelStyle, color: t.accent, textAlign: 'center', marginBottom: '12px' }}>My Expertise</p>
+          <h2 style={{ 
+            ...sectionH2Style, 
+            backgroundImage: `linear-gradient(to bottom right, #cbd5e1, #64748b)`,
+            WebkitBackgroundClip: 'text',
+            backgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            textAlign: 'center',
+            fontSize: 'clamp(40px, 8vw, 80px)',
+            lineHeight: 0.9,
+            letterSpacing: '-0.02em',
+            padding: '20px 0'
+          }}>
+            Core Specialities &<br />
+            <span style={{ 
+              display: 'inline-block', 
+              backgroundImage: `linear-gradient(90deg, ${t.accent}, #3b82f6)`, 
+              WebkitBackgroundClip: 'text', 
+              backgroundClip: 'text', 
+              WebkitTextFillColor: 'transparent' 
+            }}>Procedure</span>
+          </h2>
+        </motion.div>
+      </LampContainer>
+
+      <div style={{ 
+        padding: '0 clamp(24px,5vw,80px) 120px 24px', 
+        maxWidth: '1280px', 
+        margin: '-200px auto 0 auto', 
+        position: 'relative', 
+        zIndex: 100 
+      }}>
 
       <div style={{ 
         display: 'grid', 
@@ -68,6 +97,7 @@ export const Skills = () => {
           </motion.div>
         ))}
       </div>
+    </div>
     </section>
   )
 }
