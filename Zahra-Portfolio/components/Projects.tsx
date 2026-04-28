@@ -84,7 +84,7 @@ export const Projects = () => {
     <section ref={sectionRef} id="projects" style={{ 
       position: 'relative', 
       height: `${totalHeight}vh`,
-      background: 'transparent'
+      background: t.bg === '#fafafa' ? '#f1f5f9' : 'transparent' 
     }}>
       {/* Static Heading */}
       <div style={{ textAlign: 'center', padding: '80px 24px 20px 24px' }}>
@@ -122,18 +122,20 @@ export const Projects = () => {
             bottom: '120px', 
             textAlign: 'center', 
             zIndex: 100,
-            background: 'rgba(0,0,0,0.7)',
+            background: t.bg === '#fafafa' ? 'rgba(255,255,255,0.85)' : 'rgba(0,0,0,0.7)',
             backdropFilter: 'blur(16px)',
             padding: '12px 28px',
             borderRadius: '50px',
             border: `1px solid ${t.accent}60`,
-            boxShadow: `0 10px 30px rgba(0,0,0,0.5), 0 0 20px ${t.accent}10`
+            boxShadow: t.bg === '#fafafa' 
+              ? `0 10px 30px rgba(0,0,0,0.1), 0 0 20px ${t.accent}10`
+              : `0 10px 30px rgba(0,0,0,0.5), 0 0 20px ${t.accent}10`
           }}
         >
           <span style={{ fontSize: '11px', color: t.accent, textTransform: 'uppercase', letterSpacing: '0.3em', fontWeight: '800', display: 'block', marginBottom: '2px' }}>
             {project.tag}
           </span>
-          <h3 style={{ fontSize: '22px', fontWeight: '900', color: '#fff', margin: 0 }}>
+          <h3 style={{ fontSize: '22px', fontWeight: '900', color: t.text, margin: 0 }}>
             {project.name}
           </h3>
         </motion.div>
@@ -145,7 +147,7 @@ export const Projects = () => {
           marginTop: '150px' // Increased margin to ensure top isn't cut off even at max zoom
         }}>
           <MacbookScroll
-            key="sticky-macbook"
+            key={`macbook-${project.id}`}
             scrollYProgress={lidProgress}
             src={project.image}
             showGradient={false}

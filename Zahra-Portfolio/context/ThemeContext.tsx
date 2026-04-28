@@ -23,6 +23,9 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     if (mounted) {
       localStorage.setItem('theme', theme)
+      // Apply theme to document element for global CSS
+      document.documentElement.classList.remove('light', 'dark')
+      document.documentElement.classList.add(theme)
     }
   }, [theme, mounted])
 

@@ -71,7 +71,7 @@ export const About = () => {
             {copied ? <Check size={24} color={t.accent} /> : <Copy size={24} color={t.accent} />}
           </RealisticIcon>
           <div style={{ marginTop: '24px' }}>
-            <div style={{ fontSize: '11px', color: t.textFaint, fontWeight: '800', marginBottom: '8px' }}>DIRECT CONTACT</div>
+            <div style={{ fontSize: '11px', color: t.textMuted, fontWeight: '800', marginBottom: '8px' }}>DIRECT CONTACT</div>
             <div style={{ fontSize: '18px', fontWeight: '800', color: t.text }}>{EMAIL}</div>
             <div style={{ fontSize: '11px', color: t.accent, fontWeight: '600', marginTop: '4px' }}>{copied ? 'Copied!' : 'Tap to copy'}</div>
           </div>
@@ -87,7 +87,7 @@ export const About = () => {
             <GlobeColoredIcon size={28} color={t.accent} />
           </RealisticIcon>
           <div style={{ marginTop: '24px' }}>
-            <div style={{ fontSize: '11px', color: t.textFaint, fontWeight: '800', marginBottom: '8px' }}>AVAILABLE GLOBALLY</div>
+            <div style={{ fontSize: '11px', color: t.textMuted, fontWeight: '800', marginBottom: '8px' }}>AVAILABLE GLOBALLY</div>
             <div style={{ fontSize: '20px', fontWeight: '800', color: t.text }}>Lahore, Pakistan</div>
             <div style={{ fontSize: '11px', color: t.textFaint }}>GMT +5 · Open to remote</div>
           </div>
@@ -103,7 +103,7 @@ export const About = () => {
             <img src="/whatsapp.png" alt="WhatsApp" style={{ width: 32, height: 32, objectFit: 'contain' }} />
           </RealisticIcon>
           <div style={{ marginTop: '24px' }}>
-            <div style={{ fontSize: '11px', color: t.textFaint, fontWeight: '800', marginBottom: '8px' }}>INSTANT MESSAGE</div>
+            <div style={{ fontSize: '11px', color: t.textMuted, fontWeight: '800', marginBottom: '8px' }}>INSTANT MESSAGE</div>
             <div style={{ fontSize: '20px', fontWeight: '800', color: t.text }}>
               Chat on WhatsApp <ArrowRight size={18} />
             </div>

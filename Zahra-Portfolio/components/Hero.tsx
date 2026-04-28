@@ -31,13 +31,19 @@ export const Hero = () => {
             lineHeight: '0.85', letterSpacing: '-0.05em'
           }}
         >
-          <span className="hero-title-main" style={{ display: 'block', color: t.text }}>ZAHRA</span>
+          <span className="hero-title-main" style={{ 
+            display: 'block', 
+            color: t.text,
+            textShadow: t.bg === '#fafafa' ? '0 10px 30px rgba(0,0,0,0.05)' : 'none'
+          }}>ZAHRA</span>
           <span className="hero-title-sub" style={{
             display: 'inline-block',
             fontStyle: 'italic',
             fontFamily: '"Playfair Display", serif',
             fontWeight: '700',
-            backgroundImage: `linear-gradient(90deg, ${t.accent}, #3b82f6, #14b8a6, ${t.accent})`,
+            backgroundImage: t.bg === '#fafafa'
+              ? `linear-gradient(90deg, ${t.accent}, #2563eb, #0d9488, ${t.accent})`
+              : `linear-gradient(90deg, ${t.accent}, #3b82f6, #14b8a6, ${t.accent})`,
             backgroundSize: '200% auto',
             WebkitBackgroundClip: 'text',
             backgroundClip: 'text',
@@ -60,7 +66,12 @@ export const Hero = () => {
         }}>
           Web Developer & AI SaaS Builder
         </h2>
-        <p style={{ fontSize: '15.5px', color: t.textMuted, lineHeight: '1.7' }}>
+        <p style={{ 
+          fontSize: '16.5px', 
+          color: t.bg === '#fafafa' ? '#404040' : t.textMuted, 
+          lineHeight: '1.7',
+          fontWeight: t.bg === '#fafafa' ? '500' : '400'
+        }}>
           I build high-performance web apps and AI-powered tools with clean, scalable code.
         </p>
       </motion.div>

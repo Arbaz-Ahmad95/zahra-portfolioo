@@ -26,7 +26,7 @@ export const Skills = () => {
   const { t } = useTheme()
 
   return (
-    <section id="skills" style={{ position: 'relative', zIndex: 1, background: '#020617' }}>
+    <section id="skills" style={{ position: 'relative', zIndex: 1, background: t.bg }}>
       <LampContainer>
         <motion.div
           initial={{ opacity: 0, y: 100 }}
@@ -41,7 +41,9 @@ export const Skills = () => {
           <p style={{ ...sectionLabelStyle, color: t.accent, textAlign: 'center', marginBottom: '12px' }}>My Expertise</p>
           <h2 style={{ 
             ...sectionH2Style, 
-            backgroundImage: `linear-gradient(to bottom right, #cbd5e1, #64748b)`,
+            backgroundImage: t.bg === '#fafafa' 
+              ? `linear-gradient(to bottom right, #0f172a, #334155)` 
+              : `linear-gradient(to bottom right, #cbd5e1, #64748b)`,
             WebkitBackgroundClip: 'text',
             backgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
@@ -54,7 +56,9 @@ export const Skills = () => {
             Core Specialities &<br />
             <span style={{ 
               display: 'inline-block', 
-              backgroundImage: `linear-gradient(90deg, ${t.accent}, #3b82f6)`, 
+              backgroundImage: t.bg === '#fafafa'
+                ? `linear-gradient(90deg, #7c3aed, #2563eb)`
+                : `linear-gradient(90deg, ${t.accent}, #3b82f6)`, 
               WebkitBackgroundClip: 'text', 
               backgroundClip: 'text', 
               WebkitTextFillColor: 'transparent' 

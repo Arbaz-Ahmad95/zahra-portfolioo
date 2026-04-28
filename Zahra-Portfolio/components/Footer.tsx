@@ -8,7 +8,9 @@ export const Footer = () => {
   return (
     <footer style={{ 
       padding: '80px 40px', textAlign: 'center', 
-      borderTop: `1px solid ${t.border}`, color: t.textFaint, fontSize: '12px' 
+      background: '#030005',
+      color: 'rgba(255,255,255,0.4)', fontSize: '12px',
+      borderTop: '1px solid rgba(255,255,255,0.05)'
     }}>
       © 2025 Zahra Fiaz · Web Developer & Shopify Expert · Lahore, Pakistan
     </footer>

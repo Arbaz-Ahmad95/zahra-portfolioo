@@ -9,15 +9,16 @@ export const Vision = () => {
   const isDark = theme === 'dark'
 
   // Only show in dark mode as requested, or use theme-appropriate colors
-  const bgColor = isDark ? '#030005' : '#ffffff'
-  const textColor = isDark ? '#ffffff' : '#030005'
+  // Use a high-contrast dark background for CTA impact
+  const bgColor = "#030005"
+  const textColor = "#ffffff"
 
   return (
     <section id="vision" style={{ background: bgColor }}>
       <WavyBackground 
         backgroundFill={bgColor}
-        colors={isDark ? ["#38bdf8", "#818cf8", "#c084fc", "#e879f9", "#22d3ee"] : ["#bae6fd", "#c7d2fe", "#e9d5ff", "#fbcfe8", "#99f6e4"]}
-        waveOpacity={isDark ? 0.3 : 0.2}
+        colors={["#38bdf8", "#818cf8", "#c084fc", "#e879f9", "#22d3ee"]}
+        waveOpacity={0.3}
         blur={15}
         speed="slow"
       >

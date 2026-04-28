@@ -18,9 +18,10 @@ export const NavigationDock = () => {
   return (
     <div style={{ 
       position: 'fixed', bottom: '30px', left: '50%', transform: 'translateX(-50%)', 
-      background: t.dockBg, border: `1px solid ${t.dockBorder}`, backdropFilter: 'blur(20px)', 
+      background: t.dockBg, border: `1px solid ${t.dockBorder}`, backdropFilter: 'blur(24px)', 
       borderRadius: '24px', padding: '8px', display: 'flex', gap: '8px', 
-      alignItems: 'center', zIndex: 2000, boxShadow: '0 20px 50px rgba(0,0,0,0.3)' 
+      alignItems: 'center', zIndex: 2000, 
+      boxShadow: t.bg === '#fafafa' ? '0 10px 40px rgba(0,0,0,0.08)' : '0 20px 50px rgba(0,0,0,0.3)' 
     }}>
       {dockItems.map(item => (
         <div key={item.id} className="dock-container" style={{ position: 'relative' }}>
@@ -38,8 +39,8 @@ export const NavigationDock = () => {
             padding: '6px 12px', borderRadius: '8px', fontSize: '12px', 
             fontWeight: 600, border: `1px solid ${t.border}`, 
             transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)', 
-            backdropFilter: 'blur(10px)', whiteSpace: 'nowrap', 
-            boxShadow: '0 4px 12px rgba(0,0,0,0.1)' 
+            backdropFilter: 'blur(12px)', whiteSpace: 'nowrap', 
+            boxShadow: t.bg === '#fafafa' ? '0 4px 12px rgba(0,0,0,0.06)' : '0 4px 12px rgba(0,0,0,0.2)' 
           }}>
             {item.name}
           </div>
@@ -62,8 +63,8 @@ export const NavigationDock = () => {
           padding: '6px 12px', borderRadius: '8px', fontSize: '12px', 
           fontWeight: 600, border: `1px solid ${t.border}`, 
           transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)', 
-          backdropFilter: 'blur(10px)', whiteSpace: 'nowrap', 
-          boxShadow: '0 4px 12px rgba(0,0,0,0.1)' 
+          backdropFilter: 'blur(12px)', whiteSpace: 'nowrap', 
+          boxShadow: t.bg === '#fafafa' ? '0 4px 12px rgba(0,0,0,0.06)' : '0 4px 12px rgba(0,0,0,0.2)' 
         }}>
           Theme
         </div>

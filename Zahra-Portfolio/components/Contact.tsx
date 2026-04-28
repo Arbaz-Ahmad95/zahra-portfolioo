@@ -17,9 +17,13 @@ export const Contact = () => {
     return () => clearInterval(timer)
   }, [])
 
+  const darkBg = "#030005"
+  const lightText = "#ffffff"
+  const mutedText = "rgba(255,255,255,0.6)"
+
   return (
     <section id="contact" style={{
-      background: isDark ? '#030005' : '#ffffff',
+      background: darkBg,
       padding: '0 24px 40px 24px',
       overflow: 'hidden'
     }}>
@@ -29,16 +33,14 @@ export const Contact = () => {
         display: 'grid',
         borderRadius: '40px',
         overflow: 'hidden',
-        background: isDark ? 'rgba(255,255,255,0.02)' : 'rgba(0,0,0,0.02)',
-        border: `1px solid ${t.border}`,
-        boxShadow: isDark ? '0 40px 100px rgba(0,0,0,0.5)' : '0 20px 50px rgba(0,0,0,0.05)'
+        background: 'rgba(255,255,255,0.03)',
+        border: `1px solid rgba(255,255,255,0.1)`,
+        boxShadow: '0 40px 100px rgba(0,0,0,0.5)'
       }}>
         {/* Left Side: Animated Gradient & Testimonials */}
         <div style={{
           position: 'relative',
-          background: isDark
-            ? 'linear-gradient(135deg, #0a050f 0%, #1a103d 50%, #030005 100%)'
-            : 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)',
+          background: 'linear-gradient(135deg, #0a050f 0%, #1a103d 50%, #030005 100%)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -54,7 +56,7 @@ export const Contact = () => {
             transition={{ duration: 20, repeat: Infinity }}
             style={{
               position: 'absolute', top: '10%', left: '10%', width: '300px', height: '300px',
-              background: t.accent, filter: 'blur(100px)', borderRadius: '50%', opacity: isDark ? 0.2 : 0.15
+              background: t.accent, filter: 'blur(100px)', borderRadius: '50%', opacity: 0.2
             }}
           />
 
@@ -66,23 +68,23 @@ export const Contact = () => {
               exit={{ opacity: 0, x: 20 }}
               transition={{ duration: 0.4 }}
               style={{
-                background: isDark ? 'rgba(255, 255, 255, 0.03)' : 'rgba(255, 255, 255, 0.6)',
+                background: 'rgba(255, 255, 255, 0.04)',
                 backdropFilter: 'blur(30px)',
-                border: isDark ? '1px solid rgba(255, 255, 255, 0.08)' : '1px solid rgba(0, 0, 0, 0.05)',
+                border: '1px solid rgba(255, 255, 255, 0.08)',
                 borderRadius: '32px',
                 padding: '32px',
                 maxWidth: '450px',
                 position: 'relative',
                 zIndex: 2,
-                boxShadow: isDark ? '0 40px 100px rgba(0,0,0,0.4)' : '0 20px 50px rgba(0,0,0,0.05)'
+                boxShadow: '0 40px 100px rgba(0,0,0,0.4)'
               }}
             >
-              <svg width="32" height="32" viewBox="0 0 24 24" fill={isDark ? "rgba(255,255,255,0.4)" : "rgba(0,0,0,0.2)"} style={{ marginBottom: '20px' }}>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="rgba(255,255,255,0.4)" style={{ marginBottom: '20px' }}>
                 <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C20.1216 16 21.017 16.8954 21.017 18V21C21.017 22.1046 20.1216 23 19.017 23H16.017C14.9124 23 14.017 22.1046 14.017 21ZM14.017 21C11.1216 21 8.017 18.8954 8.017 15V12C8.017 11.1046 8.91242 10.2092 10.017 10.2092H13.017C14.1216 10.2092 15.017 11.1046 15.017 12V15C15.017 16.1046 14.1216 17 13.017 17H11.017C11.017 18 12.017 19 14.017 19V21ZM5.017 21L5.017 18C5.017 16.8954 5.91242 16 7.017 16H10.017C11.1216 16 12.017 16.8954 12.017 18V21C12.017 22.1046 11.1216 23 10.017 23H7.017C5.91242 23 5.017 22.1046 5.017 21ZM5.017 21C2.12158 21 -1 18.8954 -1 15V12C-1 11.1046 0.89543 10.2092 2.017 10.2092H5.017C6.12158 10.2092 7.017 11.1046 7.017 12V15C7.017 16.1046 6.12158 17 5.017 17H3.017C3.017 18 4.017 19 6.017 19V21" />
               </svg>
               <p style={{
                 fontSize: '18px',
-                color: isDark ? '#fff' : '#1e1b4b',
+                color: '#fff',
                 lineHeight: 1.5,
                 fontWeight: '500',
                 marginBottom: '16px'
@@ -99,8 +101,8 @@ export const Contact = () => {
                   <span style={{ margin: '0 auto' }}>{testimonialsData[index].initials}</span>
                 </div>
                 <div>
-                  <div style={{ color: isDark ? '#fff' : '#1e1b4b', fontWeight: '700', fontSize: '15px' }}>{testimonialsData[index].name}</div>
-                  <div style={{ color: isDark ? 'rgba(255,255,255,0.6)' : 'rgba(30,27,75,0.6)', fontSize: '12px' }}>{testimonialsData[index].role}</div>
+                  <div style={{ color: '#fff', fontWeight: '700', fontSize: '15px' }}>{testimonialsData[index].name}</div>
+                  <div style={{ color: 'rgba(255,255,255,0.6)', fontSize: '12px' }}>{testimonialsData[index].role}</div>
                 </div>
               </div>
             </motion.div>
@@ -109,24 +111,24 @@ export const Contact = () => {
 
         {/* Right Side: Contact Form */}
         <div style={{ padding: '40px 30px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-          <h2 style={{ fontSize: '28px', fontWeight: '800', color: t.text, marginBottom: '8px' }}>Let's Connect</h2>
-          <p style={{ color: t.textMuted, marginBottom: '24px', fontSize: '15px' }}>
+          <h2 style={{ fontSize: '28px', fontWeight: '800', color: '#fff', marginBottom: '8px' }}>Let's Connect</h2>
+          <p style={{ color: mutedText, marginBottom: '24px', fontSize: '15px' }}>
             Fill out the form and I'll get back to you within 24 hours.
           </p>
 
           <form style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <FormInput label="Full Name" placeholder="Zahra Fiaz" theme={t} isDark={isDark} />
-            <FormInput label="Email address" placeholder="zahra@example.com" theme={t} isDark={isDark} />
+            <FormInput label="Full Name" placeholder="Zahra Fiaz" theme={t} isDark={true} />
+            <FormInput label="Email address" placeholder="zahra@example.com" theme={t} isDark={true} />
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-              <label style={{ fontSize: '12px', fontWeight: '600', color: t.text, opacity: 0.8 }}>Message</label>
+              <label style={{ fontSize: '12px', fontWeight: '600', color: '#fff', opacity: 0.8 }}>Message</label>
               <textarea
                 placeholder="How can I help you?"
                 style={{
                   width: '100%', minHeight: '120px',
-                  background: isDark ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.03)',
-                  border: `1px solid ${t.border}`,
-                  borderRadius: '16px', padding: '14px', color: t.text,
+                  background: 'rgba(255,255,255,0.05)',
+                  border: `1px solid rgba(255,255,255,0.1)`,
+                  borderRadius: '16px', padding: '14px', color: '#fff',
                   outline: 'none', transition: 'all 0.3s',
                   fontSize: '14px'
                 }}
@@ -135,8 +137,8 @@ export const Contact = () => {
 
             <button className="submit-btn" style={{
               width: '100%',
-              background: isDark ? '#fff' : t.accent,
-              color: isDark ? '#000' : '#fff',
+              background: '#fff',
+              color: '#000',
               padding: '16px', borderRadius: '50px',
               fontWeight: '800', fontSize: '15px', border: 'none',
               cursor: 'pointer', transition: 'all 0.3s',
@@ -175,14 +177,14 @@ export const Contact = () => {
 const FormInput = ({ label, placeholder, theme, isDark }: any) => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-      <label style={{ fontSize: '12px', fontWeight: '600', color: theme.text, opacity: 0.8 }}>{label}</label>
+      <label style={{ fontSize: '12px', fontWeight: '600', color: '#fff', opacity: 0.8 }}>{label}</label>
       <input
         placeholder={placeholder}
         style={{
           width: '100%',
-          background: isDark ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.03)',
-          border: `1px solid ${theme.border}`,
-          borderRadius: '16px', padding: '14px', color: theme.text,
+          background: 'rgba(255,255,255,0.05)',
+          border: `1px solid rgba(255,255,255,0.1)`,
+          borderRadius: '16px', padding: '14px', color: '#fff',
           outline: 'none', transition: 'all 0.3s',
           fontSize: '14px'
         }}
